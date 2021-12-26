@@ -2,8 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        {{-- Para poder llamar request con protocolo HTTP en webs con HTTPS --}}
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        @if (App::environment('production'))
+            {{-- Para poder llamar requests con protocolo HTTP en webs con HTTPS --}}
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        @endif
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="https://www.youtube.com/channel/UCd26IzVnJSUtIlrtVdYrSPw">
         <meta name="author" content="Nst">
